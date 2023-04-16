@@ -1,11 +1,11 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 interface ICardProps {
-  left: React.ReactNode;
-  right: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
 }
 
-const Card: React.FC<ICardProps> = ({ left, right }) => {
+const Card: React.FC<ICardProps> = ({ title, children }) => {
   return (
     <Stack
       direction="row"
@@ -17,14 +17,16 @@ const Card: React.FC<ICardProps> = ({ left, right }) => {
         padding: "2rem",
       }}
     >
-      <Box sx={{ flex: 1 }}>{left}</Box>
+      <Box sx={{ flex: 1 }}>
+        <Typography variant="h6">{title}</Typography>
+      </Box>
       <Box
         sx={{
           flex: 4,
           height: "400px",
         }}
       >
-        {right}
+        {children}
       </Box>
     </Stack>
   );
